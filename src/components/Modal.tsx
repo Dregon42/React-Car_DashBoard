@@ -1,4 +1,5 @@
 import AddForm from "./AddForm";
+import Background from '../assets/austin-chan-ukzHlkoz1IE-unsplash.jpg';
 
 interface Props {
     id?: string[];
@@ -13,10 +14,11 @@ function Modal(props: Props) {
         <div 
             onClick={ props.onClose } 
             className='fixed w-full h-full flex overflow-auto z-1 
-            justify-center align-middle bg-gray-300 bg-opacity-25'
+            justify-center align-middle bg-center bg-cover pb-5'
+            style={{ backgroundImage: `url(${ Background })`} }
         >
             <div 
-                className="max-w-screen-600px w-3/5 fixed flex z-1 mt-20 bg-white shadow-xl rounded"
+                className="max-w-screen-600px w-3/5 fixed flex z-1 mt-20 bg-transparent shadow-2xl rounded"
                 onClick={(e) => {
                     e.stopPropagation()
                 }}

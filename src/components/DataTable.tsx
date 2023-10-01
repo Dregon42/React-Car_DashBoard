@@ -41,16 +41,16 @@ function DataTable() {
         onClose={handleClose}
         id={rowSelectionModel}
          />
-      <div className="flex flew row">
+      <div className="flex flew-row justify-center space-x-20 px-32">
         <div>
           <button 
           onClick={handleOpen}
-          className="p-3 bg-blue-300 m-3 rounded-full hover:bg-blue-100">
+          className="p-3 bg-blue-300 m-3 rounded-full hover:bg-blue-100 hover:rotate-45">
             Add New Car
           </button>
         </div>
-        <button onClick={handleOpen} className="p-3 bg-blue-300 m-3 rounded-full hover:bg-blue-100">Update</button>
-        <button onClick={deleteData} className="p-3 bg-blue-300 m-3 rounded-full hover:bg-blue-100">Delete</button>
+        <button onClick={handleOpen} className="p-3 bg-blue-300 m-3 rounded-full hover:bg-blue-100 hover:rotate-45">Update</button>
+        <button onClick={deleteData} className="p-3 bg-blue-300 m-3 rounded-full hover:bg-blue-100 hover:rotate-45">Delete</button>
       </div>
       <div className={ open ? 'hidden' : 'conatiner mx-96 my-5 flex flex-col justify-content-center'}
       style={{height:550, width: '50%'}}
@@ -63,8 +63,6 @@ function DataTable() {
             width: '100%',
             opacity: 0.75,
             backgroundColor: 'grey',
-            // marginX: 38,
-            // paddingX: 2,
             boxShadow: 2,
             border: 2,
             borderColor: 'primary.light',
