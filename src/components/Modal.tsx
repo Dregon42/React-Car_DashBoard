@@ -31,7 +31,7 @@ function Modal(props: Props) {
                         </p>
                     </div>
                     <div className="flex flex-col mb-20">
-                        <AddForm id={ props.id }/>
+                        <AddForm id={ props.id } />
                     </div>
                 </div>
             </div>

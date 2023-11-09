@@ -8,19 +8,19 @@ export default function NavBar() {
     const [isVisible, setIsVisible] = useState(false)
 
     const dropDown = () => {
-        setIsVisible(!isVisible)
+        setIsVisible(!isVisible);
     };
 
-    const clicked = () => {
-        setIsVisible(false)
+    const hidedropdown = () => {
+        setIsVisible(false);
     };
 
-    const signOutOnClick = () => {
+    const handleSignOut = () => {
         signOut(auth);
         location.reload();
     };
 
-    const signInOnClick = async () => {
+    const handleSignIn = async () => {
         const response = await signInWithPopup(auth, Providers.google);
         if ( response.user ) {
             location.reload();
@@ -44,36 +44,36 @@ export default function NavBar() {
                 <div className="text-sm lg:flex-grow">
                     <Button className='p-3 bg-blue-400 m-3 rounded-full justify-center hover:origin-top-left hover:rotate-12'>
                         <div>
-                            <Link onClick={clicked} to='/' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
+                            <Link onClick={hidedropdown} to='/' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
                                 Home
                             </Link>
                         </div>
                     </Button>
                     <Button className='p-3 bg-blue-400 m-3 rounded-full justify-center hover:origin-top-left hover:rotate-12'>
                         <div>
-                            <Link onClick={clicked} to='/dashboard' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
+                            <Link onClick={hidedropdown} to='/dashboard' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
                                 Dashboard
                             </Link>
                         </div>
                     </Button>
                     {
-                        !auth.currentUser ?
+                        !auth.currentUser ? (
 
                         <Button className='p-3 bg-blue-400 m-3 rounded-full justify-center hover:origin-top-left hover:rotate-12'>
                             <div>
-                                <Link onClick={() => {signInOnClick()}} to='/' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
+                                <Link onClick={() => {handleSignIn()}} to='/' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
                                     Sign In
                                 </Link>
                             </div>
                         </Button>
-                        :
+                        ):(
                         <Button className='p-3 bg-blue-400 m-3 rounded-full justify-center hover:origin-top-left hover:rotate-12'>
                             <div>
-                                <Link onClick={() => {signOutOnClick()}} to='/' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
+                                <Link onClick={() => {handleSignOut()}} to='/' className='flex align-item-center place-itmes-center  text-white hover:text-white '>
                                     Sign Out
                                 </Link>
                             </div>
-                        </Button>
+                        </Button>)
                     }
                 </div>
             </div>

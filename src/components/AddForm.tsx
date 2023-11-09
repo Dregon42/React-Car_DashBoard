@@ -15,15 +15,10 @@ function AddForm(props:AddFormProps) {
   const dispatch = useDispatch();
   const store = useStore();
   
-  const onSubmit = (data: any, event: any) => {
-    console.log(`ID: ${typeof props.id}`);
-    console.log(props.id)
-    console.log(data)
+  const onSubmit = (data: any) => {
     if (props.id && props.id.length > 0) {
-      server_calls.update(props.id[0], data)
-      console.log(`Updated: ${ data } ${ props.id }`)
-      setTimeout(() => {window.location.reload()}, 500);
-      event.target.reset()
+      server_calls.update(props.id[0], data);
+      setTimeout(() => window.location.reload(), 100);
     } else {
       // Use dispatch to update our state in our store
       dispatch(chooseYear(data.year));
@@ -32,10 +27,9 @@ function AddForm(props:AddFormProps) {
       dispatch(chooseTransmission(data.transmission));
 
       server_calls.create(store.getState());
-      setTimeout(() => {window.location.reload()}, 3000)
+      setTimeout(() => window.location.reload(), 100);
     }
   }
-
 
   return (
       <div className='mt-0 flex flex-col justify-center' >

@@ -29,10 +29,10 @@ function DataTable() {
     server_calls.delete(rowSelectionModel[0]);
     getData();
     console.log(`Selection model: ${rowSelectionModel}`);
-    setTimeout( () => { window.location.reload(), 500})
+    // setTimeout( () => { window.location.reload(), 500})
   };
 
-
+  
 
   return (
     <>
